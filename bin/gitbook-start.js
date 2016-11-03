@@ -34,7 +34,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	if (comprobar.comp(argv)){
 		if(argv.d || argv.deploy){iniDeplo.execute(path,direct,fs,argv.d,argv.deploy);}
 		if(Object.keys(argv).length == 1 ||argv.dir){
-			render = new Promise((resolve,reject) => {resolve(renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct))});
+			function render(){ return  new Promise((resolve,reject) => {resolve(renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct))});
 			render.then(function(res){
 				renderTemplate.initNpmInstall(argv,defaultname);
 			});
