@@ -30,7 +30,6 @@
   "dependencies": {
     "ejs": "^2.5.2",
     "fs-extra": "^0.22.1",
-    "gh-pages": "^0.11.0",
     "git-config": "0.0.7",
     "gulp": "^3.9.1",
     "gulp-shell": "^0.5.2",
