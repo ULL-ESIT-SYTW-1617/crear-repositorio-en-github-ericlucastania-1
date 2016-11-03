@@ -80,6 +80,8 @@ module.exports = {
 		
 		cd(process.cwd() + '/' + dir);
 		exec('git init');
+		console.log(process.cwd());
+		console.log(process.cwd() + '/' + dir);
 		exec('npm install');
 	}
 };
