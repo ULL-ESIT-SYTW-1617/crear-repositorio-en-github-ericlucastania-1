@@ -37,7 +37,7 @@ uso de la API de GitHub para poder crearle un repo en la plataforma.
 
 ## Explicación
 
-Cunado se ejecuta el gitbook-start -d PLUHIN se te lanzará el initialize del módulo,
+Cunado se ejecuta el gitbook-start -d PLUGIN se te lanzará el initialize del módulo,
 el initialize crea una tarea en el gulp para realizar el deploy. Además de guardarte el paquete
 elegido en el package.json.
 

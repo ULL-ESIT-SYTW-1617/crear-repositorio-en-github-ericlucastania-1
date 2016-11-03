@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-elt",
-  "version": "0.3.94",
+  "version": "0.3.97",
   "description": "Repo to start gitbook proyect",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ULL-ESIT-SYTW-1617/practica-plugins-heroku-ericlucastania.git"
+    "url": "https://github.com/ULL-ESIT-SYTW-1617/crear-repositorio-en-github-ericlucastania-1.git"
   },
   "keywords": [
     "gitbook",
@@ -26,10 +26,6 @@
   },
   "author": "Eric Ramos, Lucas Ruiz, Tania Gonzalez",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-ericlucastania-1/issues"
-  },
-  "homepage": "https://github.com/ULL-ESIT-SYTW-1617/nueva-funcionalidad-para-el-paquete-npm-plugins-ericlucastania-1/blob/master/README.md",
   "devDependencies": {},
   "dependencies": {
     "async": "^1.4.0",
