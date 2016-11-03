@@ -77,8 +77,7 @@ module.exports = {
 		
 		require('shelljs/global');
 		var dir = argv.dir || defaultname;
-		cd(process.cwd() + '/' + dir);
-		exec('git init');
-		exec('npm install');
+		
+		exec('cd dir && git init && npm install');
 	}
 };
