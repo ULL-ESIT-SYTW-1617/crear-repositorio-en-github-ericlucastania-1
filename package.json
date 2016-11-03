@@ -28,13 +28,10 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "async": "^1.4.0",
     "ejs": "^2.5.2",
     "fs-extra": "^0.22.1",
     "gh-pages": "^0.3.1",
     "git-config": "0.0.7",
-    "gitbook": "^2.1.0",
-    "gitbook-cli": "^0.3.4",
     "gulp": "^3.9.1",
     "gulp-shell": "^0.5.2",
     "minimist": "^1.2.0",
