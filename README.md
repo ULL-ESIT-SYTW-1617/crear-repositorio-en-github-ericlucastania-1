@@ -1,12 +1,7 @@
-![](http://arunoda.me/images/blog/npm-love-github-thumb.png)
-
-
-
 # Descripción
 
-El objetivo de la práctica es llegar a que el usuario puede descargar el plugin gitbook-start-plugin-iaas-ull-es-ericlucastania y el paquete gitbook-start-elt de manera local en su maquina.El usuario tiene que tener en cuenta que tiene que tener previamente un cuenta en el iaas 
-y tener un clone de su repositorio. Una vez que se tiene claro los anteriores aspectos comenzamos a explicar los pasos llevar a cabo el correcto funcionamiento de la práctica.
-
+El objetivo es facilitar el uso del repositorio a todo tipo de usuarios, ya estén familizarizados con gitbook y github o no. Para ello haremos
+uso de la API de GitHub para poder crearle un repo en la plataforma.
 
 
 ## Pasos a ejecutar 
