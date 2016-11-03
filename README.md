@@ -1,4 +1,6 @@
-# Descripción
+#Práctica: GitHub API
+
+## Descripción
 
 El objetivo es facilitar el uso del repositorio a todo tipo de usuarios, ya estén familizarizados con gitbook y github o no. Para ello haremos
 uso de la API de GitHub para poder crearle un repo en la plataforma.
