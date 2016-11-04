@@ -6,7 +6,7 @@ module.exports = {
 		
 		
 		var ejs = require('ejs');
-		require('shelljs/global');
+		
 		
 		//Rutas interesantes
 		var rutaTemplate = path.join(__dirname, '..','template');
@@ -71,6 +71,7 @@ module.exports = {
 		};
 		
 		recursive(names,'');
+		require('shelljs/global');
 		cd(dir);
 		exec('git init');
 	}
