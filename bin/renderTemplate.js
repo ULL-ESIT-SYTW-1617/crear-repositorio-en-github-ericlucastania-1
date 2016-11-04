@@ -2,11 +2,11 @@
 
 module.exports = {
 
-	rend: (argv,path,fs,defaultname,defaultemail,direct,npm) => {
+	rend: (argv,path,fs,defaultname,defaultemail,direct) => {
 		
 		
 		var ejs = require('ejs');
-		
+		require('shelljs/global');
 		
 		//Rutas interesantes
 		var rutaTemplate = path.join(__dirname, '..','template');
@@ -33,53 +33,45 @@ module.exports = {
 		
 		
 		var recursive = (names,folder) => {
-			return new Promise((resolve,reject) => {
-				for (var i in names){
+			for (var i in names){
+			
+				if(names[i].match(re)){
 				
-					if(names[i].match(re)){
+					//Renderizamos el fichero
+					var data = ejs.renderFile(rutaTemplate + '/' + folder + names[i],{
+						
+						autor:{
+							name: argv.a || defaultname,
+							email: argv.e || defaultemail
+						}
+						
+					},(err,data) => {
+						if(err){
+							throw err;
+							
+						} else{
+							return data;
+							
+						}
+					});
 					
-						//Renderizamos el fichero
-						var data = ejs.renderFile(rutaTemplate + '/' + folder + names[i],{
-							
-							autor:{
-								name: argv.a || defaultname,
-								email: argv.e || defaultemail
-							}
-							
-						},(err,data) => {
-							if(err){
-								throw err;
-								
-							} else{
-								return data;
-								
-							}
-						});
-						
-						//Sustituimos el nombre, para quitarle la extensión ejs
-						
-						var newstr = names[i].replace(re, '');
-					   
-						fs.writeFile(direct + dir + '/' + folder + newstr, data, (err) => {
-						  if (err) throw err;
-						});
-					}
-					else{
-						fs.mkdirsSync(direct + dir + '/' +names[i]);
-						recursive(fs.readdirSync(rutaTemplate + '/' + names[i]),names[i] + '/');
-					}
+					//Sustituimos el nombre, para quitarle la extensión ejs
+					
+					var newstr = names[i].replace(re, '');
+				   
+					fs.writeFile(direct + dir + '/' + folder + newstr, data, (err) => {
+					  if (err) throw err;
+					});
 				}
-			});
+				else{
+					fs.mkdirsSync(direct + dir + '/' +names[i]);
+					recursive(fs.readdirSync(rutaTemplate + '/' + names[i]),names[i] + '/');
+				}
+			}
 		};
-		recursive(names,'');
-		npm = true;
-	},
-	initNpmInstall: (argv,defaultname) => {
 		
-		require('shelljs/global');
-		var dir = argv.dir || defaultname;
-		cd(process.cwd() + '/' + dir);
+		recursive(names,'');
+		cd(dir);
 		exec('git init');
-		exec('npm install');
 	}
 };

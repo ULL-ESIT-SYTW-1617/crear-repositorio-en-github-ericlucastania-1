@@ -30,7 +30,12 @@ uso de la API de GitHub para poder crearle un repo en la plataforma.
 ```gitbook-start -d PLUGIN``` !! También puedes usar la opción --deploy
 
 
-**6. Ejecuta el gulp creado**
+**6. Ejecuta un npm install**
+
+```npm install```
+
+
+**7. Ejecuta el gulp creado**
 
 
 ```gulp deploy-plugin```
