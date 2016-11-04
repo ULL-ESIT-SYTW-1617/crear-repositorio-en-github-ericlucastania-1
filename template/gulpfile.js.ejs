@@ -3,17 +3,11 @@
 var gulp  = require('gulp');
 var shell = require('gulp-shell');
  
- 
 
-gulp.task('build', function()
-{
-        .pipe(shell([
-            "npm run generate-gitbook"
-        ]))        
-       
-});
-
+gulp.task('build',shell.task([
+  'npm run generate-gitbook'
+]));
 
 gulp.task('default', function(){
-    gulp.watch(['txt/*.md', 'scripts/**',  'book.json'], ['gitbook']); 
+    gulp.watch(['txt/*.md', 'scripts/**',  'book.json'], ['build']); 
 });
