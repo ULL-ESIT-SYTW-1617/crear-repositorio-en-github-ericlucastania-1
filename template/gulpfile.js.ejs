@@ -5,16 +5,11 @@ var shell = require('gulp-shell');
  
  
 
-gulp.task('gitbook', function()
+gulp.task('build', function()
 {
-    return gulp.src('./scripts')
         .pipe(shell([
-            "gitbook install"
+            "npm run generate-gitbook"
         ]))        
-        .pipe(shell([
-           "./scripts/losh generate-gitbook && generate-wiki && deploy-gitbook && deploy-wiki" 
-        ]))
-           
        
 });
 
