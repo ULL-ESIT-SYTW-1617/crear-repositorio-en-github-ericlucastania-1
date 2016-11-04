@@ -6,7 +6,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var gitConfig = require('git-config');
-var npm = false;
+
 
 // RUTA ACTUAL
 
@@ -34,7 +34,6 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	if (comprobar.comp(argv)){
 		if(argv.d || argv.deploy){iniDeplo.execute(path,direct,fs,argv.d,argv.deploy);}
 		if(Object.keys(argv).length == 1 ||argv.dir)renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
-		if(npm)renderTemplate.initNpmInstall(argv,defaultname);
 	}
 	else {
 			console.log("gitbook-start [OPTIONS]\n"+
@@ -43,7 +42,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			"-e email del autor del libro node gitbook-star -e eric.ramos.suarez@gmail.com\n"+
 			"-r repositorio github contra el que se va a trabajar -r nameRepo\n"+
 			"-v muestra la version del paquete gitbook-start -v\n"+
-			"-d --deploy deploy en el que se quiera ejecutar gitbook-star -d iaas\n"+
+			"-d --deploy deploy en el que se quiera ejecutar gitbook-star -d PLUGIN\n"+
 			"-h muestra ayuda sobre las opciones disponibles\n");
 		}	
 
