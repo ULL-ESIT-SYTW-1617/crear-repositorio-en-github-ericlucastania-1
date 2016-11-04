@@ -6,7 +6,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var gitConfig = require('git-config');
-
+var npm = false;
 
 // RUTA ACTUAL
 
@@ -34,6 +34,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	if (comprobar.comp(argv)){
 		if(argv.d || argv.deploy){iniDeplo.execute(path,direct,fs,argv.d,argv.deploy);}
 		if(Object.keys(argv).length == 1 ||argv.dir)renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
+		if(npm)renderTemplate.initNpmInstall(argv,defaultname);
 	}
 	else {
 			console.log("gitbook-start [OPTIONS]\n"+
