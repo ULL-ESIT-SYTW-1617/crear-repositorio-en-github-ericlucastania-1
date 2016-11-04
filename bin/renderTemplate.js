@@ -80,7 +80,7 @@ module.exports = {
 			exec('npm install');
 		}
 		
-		recursive(names,'').then(initNpmInstall);
+		recursive(names,'').then(function(sol){initNpmInstall()});
 		
 	}
 };
