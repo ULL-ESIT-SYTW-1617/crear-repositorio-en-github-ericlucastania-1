@@ -78,6 +78,6 @@ module.exports = {
 		require('shelljs/global');
 		var dir = argv.dir || defaultname;
 		
-		exec('cd dir && git init && npm install');
+		exec('cd ' + dir + ' && git init && npm install');
 	}
 };
