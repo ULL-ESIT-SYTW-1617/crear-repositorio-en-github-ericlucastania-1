@@ -4,7 +4,18 @@ module.exports = {
  
  
  octo: () => {
-     
+          var ghme           = client.me();
+        var ghuser         = client.user('pksunkara');
+        var ghrepo         = client.repo('pksunkara/hub');
+        var ghorg          = client.org('flatiron');
+    var client = github.client({
+          username: 'pksunkara',
+          password: 'password'
+        });
+        
+        client.get('/user', {}, function (err, status, body, headers) {
+          console.log(body); //json object
+        });
      
      github.auth.config({ username, password }).login({
           scopes: ['user', 'repo'],
