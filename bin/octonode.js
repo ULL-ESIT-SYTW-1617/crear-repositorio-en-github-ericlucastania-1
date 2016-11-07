@@ -62,16 +62,16 @@ module.exports = {
               
 	},
 	
-	octoRepo: (dir) => {
+	octoRepo: () => {
 		var github = require('octonode');
-		
+		var readlineSync = require('readline-sync');
+		var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
 		
 		
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 		var client = github.client(configJson.token);
-
+dfldksflñkd
 		var ghme = client.me();
-		
 		ghme.repo({
 		  "name": dir,
 		  "description": "This is your Gitbook-Start repository",
