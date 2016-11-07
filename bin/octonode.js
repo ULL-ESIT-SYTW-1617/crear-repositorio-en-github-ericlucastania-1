@@ -79,7 +79,7 @@ module.exports = {
 			require('shelljs/global');
 			if (err) throw err;
 			console.log(status.ssh_url);
-			exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "cambios";git push');
+			exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push');
 		}); //repo
 	
 	}
