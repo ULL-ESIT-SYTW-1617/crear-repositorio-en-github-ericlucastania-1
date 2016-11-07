@@ -23,7 +23,7 @@ module.exports = {
 		}, 
 		(err, id, token) => {
 		  json.token = token;
-		  json.id = id;
+		  json[id] = id;
 		  if (err) return err;
 		  //console.log(err);
 		  //console.log(id);
@@ -40,7 +40,7 @@ module.exports = {
 			fs.writeFile(pac + 'config.json', json, function(err){
 				console.log("aqui da el error");
 				if (err) throw err;
-				
+				console.log("aqui da el error");
 			});
 		}
 		catch(err){
