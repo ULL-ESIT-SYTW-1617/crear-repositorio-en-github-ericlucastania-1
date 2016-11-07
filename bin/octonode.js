@@ -6,6 +6,8 @@ module.exports = {
  octo: () => {
 		var github = require('octonode');    
 		 
+		 
+		 
 		github.auth.config({ username, password }).login({
 		  scopes: ['user', 'repo'],
 		  note: 'Token para Gitbook'
