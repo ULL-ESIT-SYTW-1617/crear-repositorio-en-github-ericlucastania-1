@@ -40,19 +40,26 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
-				console.log(file.indexOf('config.json'));
 				
 				if (file.indexOf('config.json') === -1) {
-					octonode.octoIni();
-					octonode.octoRepo(dir);
+					
+					var second = new Promise((resolve,reject) => {
+					resolve(octonode.octoIni());
+					});
+					
+					second.then((resolve,reject) =>{
+						octonode.octoRepo(dir);
+					});
 				}
 				else {
 					octonode.octoRepo(dir);
 				}
 			} catch(err) {
-				console.log(err + " en el comprobar");
-				octonode.octoIni();
-				//octonode.octoRepo(dir);
+			
+				octonode.octoIni().then((resolve,reject) =>{
+					console.log("claro que entro aquí amor mío");
+					octonode.octoRepo(dir);
+				});
 			 }
 			
 		}
