@@ -31,6 +31,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	//opciones por defecto GitHub	
 	defaultname = config.user.name;
 	defaultemail = config.user.email;
+	var dir = argv.dir || "gitbookStart";
 	
 	
 	if (comprobar.comp(argv)){
@@ -44,7 +45,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				octonode.octoIni();
 			}
 			else {
-				octonode.octoRepo();
+				octonode.octoRepo(dir);
 			}
 		} catch(err) {
 			console.log(err);

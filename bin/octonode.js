@@ -22,19 +22,18 @@ module.exports = {
 		(err, id, token) => {
 		  tokenApi = token;
 		  if (err) return err;
-		  console.log(err);
-		  console.log(id);
-		  console.log(token); // Ahora si tenemos el token de github!!
+		  //console.log(err);
+		  //console.log(id);
+		  //console.log(token); // Ahora si tenemos el token de github!!
 		  
 		 
 		});
 		
-		 var directoriomonito = process.env.HOME;
+		var directoriomonito = process.env.HOME;
 		
 		fs.mkdirSync(directoriomonito + '/.gitbook-start');
 			
 		var pac = directoriomonito + '/.gitbook-start/';
-		console.log(tokenApi);
 		fs.writeFile(pac + 'config.json', tokenApi, function(err){
 			if (err) throw err;
 			
@@ -61,7 +60,7 @@ module.exports = {
 		
 
 		ghme.repo({
-		  "name": "Hello-World",
+		  "name": "GitbookStart",
 		  "description": "This is your first repo",
 		}); //repo
 	
