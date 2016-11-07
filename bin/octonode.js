@@ -16,7 +16,6 @@ module.exports = {
 			"token": "",
 			"id": ""
 		 };
-<<<<<<< HEAD
 		 
 		github.auth.config({ username, password }).login({
 		  scopes: ['user', 'repo'],
@@ -32,7 +31,6 @@ module.exports = {
 		  
 		 
 		});
-=======
 		function auth(){
 			return new Promise((resolve,reject) => {
 				github.auth.config({ username, password }).login({
@@ -52,19 +50,19 @@ module.exports = {
 			});
 		} 
 		
->>>>>>> 8b67c0c53fa7ae2362855e4adfc0159d87027d8a
+
 		
 		var directoriomonito = process.env.HOME;
 		
 		try{
-<<<<<<< HEAD
+
 			fs.mkdirSync(directoriomonito + '/.gitbook-start');
 			var pac = directoriomonito + '/.gitbook-start/';
 			fs.writeFile(pac + 'config.json', json, function(err){
 				console.log("aqui da el error");
 				if (err) throw err;
 				console.log("aqui da el error");
-=======
+
 			auth().then(function(resolve,reject){
 				fs.mkdirSync(directoriomonito + '/.gitbook-start');
 				var pac = directoriomonito + '/.gitbook-start/';
@@ -73,7 +71,7 @@ module.exports = {
 					if (err) throw err;
 					console.log("guardando el json correctamente..");
 				});
->>>>>>> 8b67c0c53fa7ae2362855e4adfc0159d87027d8a
+
 			});
 			
 		}
