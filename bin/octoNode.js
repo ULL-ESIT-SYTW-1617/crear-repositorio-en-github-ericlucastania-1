@@ -5,7 +5,7 @@ module.exports = {
  
  octo: () => {
           var ghme           = client.me();
-        var ghuser         = client.user('pksunkara');
+        
         var ghrepo         = client.repo('pksunkara/hub');
         var ghissue        = client.issue('pksunkara/hub', 37);
         var ghorg          = client.org('flatiron');
