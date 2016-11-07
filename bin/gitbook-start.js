@@ -46,14 +46,11 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					octonode.octoRepo(dir);
 				}
 				else {
-					console.log("aqui");
 					octonode.octoRepo(dir);
 				}
 			} catch(err) {
-				
-				console.log(err + " en el comprobar");
 				octonode.octoIni();
-				//octonode.octoRepo(dir);
+				octonode.octoRepo(dir);
 			 }
 			
 		}
