@@ -43,7 +43,7 @@ module.exports = {
 				fs.mkdirSync(directoriomonito + '/.gitbook-start');
 				var pac = directoriomonito + '/.gitbook-start/';
 				console.log(json);
-				fs.writeFile(pac + 'config.json', json, function(err){
+				fs.writeFile(pac + 'config.json',JSON.stringify(json), function(err){
 					if (err) throw err;
 					console.log("guardando el json correctamente..");
 				});
@@ -51,6 +51,7 @@ module.exports = {
 			
 		}
 		catch(err){
+			console.log(err);
 			console.log("leyendo directorio...");	
 		}
 		
