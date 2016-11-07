@@ -31,7 +31,7 @@ module.exports = {
 	*/	
 		 var directoriomonito = process.env.HOME;
 		
-		fs.mkdirSync(directoriomonito + '/.gitbook-start')
+		fs.mkdirSync(directoriomonito + '/.gitbook-start');
 			
 		var pac = directoriomonito + '/.gitbook-start/';
 		console.log(tokenApi);
