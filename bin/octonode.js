@@ -55,31 +55,27 @@ module.exports = {
 			console.log("leyendo directorio...");	
 		}
 		
-			
-		
-		
 		
               
 		
 	},
 	
 	octoRepo: (dir) => {
-
+		console.log(dir + " este es el dir ");
 		var github = require('octonode');
+		
+		
+		
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
-
 		var client = github.client(configJson.token);
-		console.log(configJson);
-		console.log(configJson.token);
 		var ghme = client.me();
 		
-
 		ghme.repo({
 		  "name": dir,
 		  "description": "This is your Gitbook-Start repository",
 		}); //repo
 	
-		
+		console.log("repo creado");	
 	}
 	
 	

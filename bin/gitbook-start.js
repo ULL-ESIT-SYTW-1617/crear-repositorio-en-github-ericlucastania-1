@@ -40,16 +40,17 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
-				console.log(file.indexOf('config.json'));
 				
 				if (file.indexOf('config.json') === -1) {
 					octonode.octoIni();
 					octonode.octoRepo(dir);
 				}
 				else {
+					console.log("aqui");
 					octonode.octoRepo(dir);
 				}
 			} catch(err) {
+				
 				console.log(err + " en el comprobar");
 				octonode.octoIni();
 				//octonode.octoRepo(dir);
