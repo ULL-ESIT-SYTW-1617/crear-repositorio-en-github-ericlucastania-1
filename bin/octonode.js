@@ -48,6 +48,12 @@ module.exports = {
 	octoRepo: () => {
 
 		var github = require('octonode');
+		var fs = require('fs-extra');
+		var tokenApi;
+		fs.readFile(process.env.HOME + '/.gitbook-start/config.json', 'utf8', (err, data) => {
+			if (err) throw err;
+			tokenApi = data;
+		});
 		var client = github.client(tokenApi);
 		var ghme = client.me();
 		
