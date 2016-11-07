@@ -50,9 +50,9 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					octonode.octoRepo(dir);
 				}
 			} catch(err) {
-				console.log(err);
+				console.log(err + " en el comprobar");
 				octonode.octoIni();
-				octonode.octoRepo();
+				//octonode.octoRepo();
 			 }
 			
 		}
