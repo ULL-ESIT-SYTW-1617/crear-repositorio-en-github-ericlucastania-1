@@ -46,11 +46,8 @@ module.exports = {
 	},
 	
 	octoRepo: () => {
-<<<<<<< HEAD
-		
-=======
+
 		var github = require('octonode');
->>>>>>> 185b440c74b0cb4a05d93f6614d83fe63237f8d9
 		var client = github.client(tokenApi);
 		var ghme = client.me();
 		
