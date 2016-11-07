@@ -57,7 +57,6 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			} catch(err) {
 			
 				octonode.octoIni().then((resolve,reject) =>{
-					console.log("claro que entro aquí amor mío");
 					octonode.octoRepo(dir);
 				});
 			 }
