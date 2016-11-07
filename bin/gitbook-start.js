@@ -41,7 +41,6 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			console.log(file.indexOf('config.json'));
 			
 			if (file.indexOf('config.json') === -1) {
-				console.log("entra -1");
 				octonode.octoIni();
 			}
 			else {
