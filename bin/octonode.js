@@ -4,8 +4,11 @@ module.exports = {
  
  
  octo: () => {
-		var github = require('octonode');    
+		var github = require('octonode'); 
+		var readlineSync = require('readline-sync');
 		 
+		 var username = readlineSync.question('Introduzca su nombre de usuario en Github: ');
+		 var password = readlineSync.question('Introduzca su contraseña en Github: ');
 		 
 		 
 		github.auth.config({ username, password }).login({
