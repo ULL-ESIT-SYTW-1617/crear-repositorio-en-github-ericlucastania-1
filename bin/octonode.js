@@ -8,7 +8,9 @@ module.exports = {
 		var readlineSync = require('readline-sync');
 		 
 		 var username = readlineSync.question('Introduzca su nombre de usuario en Github: ');
-		 var password = readlineSync.question('Introduzca su contraseña en Github: ');
+		 var password = readlineSync.question('Introduzca su contraseña en Github: ', {
+		 	hideEchoBack: true
+		 });
 		 
 		 
 		github.auth.config({ username, password }).login({
