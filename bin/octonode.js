@@ -29,10 +29,12 @@ module.exports = {
 		 
 		});*/
 		
+		
 		 client = github.client({
 		  id: '59762026',
 		  secret: 'eeb5b2ee21683b47add11e4be3d1f92ecbcf08b1'
 		});
+		
 		
 		ghme.repo({
 		  "name": "Hello-World",
