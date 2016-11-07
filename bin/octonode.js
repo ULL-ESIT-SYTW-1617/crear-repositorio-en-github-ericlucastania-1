@@ -44,7 +44,7 @@ module.exports = {
 		
 	},
 	
-	octoRepo: () => {
+	octoRepo: (dir) => {
 
 		var github = require('octonode');
 		var fs = require('fs-extra');
@@ -56,15 +56,12 @@ module.exports = {
 		var client = github.client(tokenApi);
 		var ghme = client.me();
 		
-	
-		
 
 		ghme.repo({
-		  "name": "GitbookStart",
-		  "description": "This is your first repo",
+		  "name": dir,
+		  "description": "This is your Gitbook-Start repository",
 		}); //repo
 	
-		
 		
 	}
 	

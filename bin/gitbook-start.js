@@ -36,21 +36,28 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	
 	if (comprobar.comp(argv)){
 		if(argv.d || argv.deploy){iniDeplo.execute(path,direct,fs,argv.d,argv.deploy);}
-		if(Object.keys(argv).length == 1 ||argv.dir)renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
-		try {
-			var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
-			console.log(file.indexOf('config.json'));
-			
-			if (file.indexOf('config.json') === -1) {
+		if(Object.keys(argv).length == 1 ||argv.dir){
+			renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
+			try {
+				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
+				console.log(file.indexOf('config.json'));
+				
+				if (file.indexOf('config.json') === -1) {
+					octonode.octoIni();
+				}
+				else {
+					octonode.octoRepo(dir);
+				}
+			} catch(err) {
+				console.log(err);
 				octonode.octoIni();
-			}
-			else {
-				octonode.octoRepo(dir);
-			}
-		} catch(err) {
-			console.log(err);
-			octonode.octoIni();
-		 }
+			 }
+			
+			
+			
+		}
+			
+	
 		
 	}
 	else {
