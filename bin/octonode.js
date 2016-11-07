@@ -69,6 +69,7 @@ module.exports = {
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 
 		var client = github.client(configJson.token);
+		console.log(configJson.token);
 		console.log(configJson);
 		console.log(configJson.token);
 		var ghme = client.me();
@@ -77,6 +78,8 @@ module.exports = {
 		ghme.repo({
 		  "name": dir,
 		  "description": "This is your Gitbook-Start repository",
+		}, () => {
+			console.log("Repo creado.");
 		}); //repo
 	
 		
