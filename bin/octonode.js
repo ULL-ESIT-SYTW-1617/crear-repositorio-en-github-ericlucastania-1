@@ -75,8 +75,9 @@ module.exports = {
 		ghme.repo({
 		  "name": dir,
 		  "description": "This is your Gitbook-Start repository",
-		}, () => {
-			console.log("Repo creado.");
+		}, (err, status, body, headers) => {
+			if (err) throw err;
+			console.log(status);
 		}); //repo
 	
 	}
