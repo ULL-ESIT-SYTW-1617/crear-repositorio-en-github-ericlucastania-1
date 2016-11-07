@@ -6,6 +6,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var gitConfig = require('git-config');
+require('shelljs/global');
 
 
 // RUTA ACTUAL
@@ -16,7 +17,8 @@ var direct = process.cwd() + '/'; //Actual,desde donde se ejecuta el script
 
 var comprobar = require('./comprobarMinimist.js');
 var renderTemplate = require('./renderTemplate.js');
-var iniDeplo = require('./initializes&deploys.js');
+var iniDeplo = require('./initializesDeploys.js');
+var octonode = require('./octonode.js');
 var defaultname,defaultemail;
 
 	
@@ -34,6 +36,22 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	if (comprobar.comp(argv)){
 		if(argv.d || argv.deploy){iniDeplo.execute(path,direct,fs,argv.d,argv.deploy);}
 		if(Object.keys(argv).length == 1 ||argv.dir)renderTemplate.rend(argv,path,fs,defaultname,defaultemail,direct);
+		try {
+			var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
+			console.log(file.indexOf('config.json'));
+			
+			if (file.indexOf('config.json') === -1) {
+				console.log("entra -1");
+				octonode.octoIni();
+			}
+			else {
+				octonode.octoRepo();
+			}
+		} catch(err) {
+			console.log(err);
+			octonode.octoIni();
+		 }
+		
 	}
 	else {
 			console.log("gitbook-start [OPTIONS]\n"+
