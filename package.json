@@ -35,6 +35,8 @@
     "gulp": "^3.9.1",
     "gulp-shell": "^0.5.2",
     "minimist": "^1.2.0",
+    "octonode": "^0.7.6",
+    "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5"
   }
 }
