@@ -52,6 +52,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			} catch(err) {
 				console.log(err);
 				octonode.octoIni();
+				octonode.octoRepo();
 			 }
 			
 		}

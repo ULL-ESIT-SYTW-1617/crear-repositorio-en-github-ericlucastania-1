@@ -17,18 +17,13 @@ module.exports = {
 			"id": ""
 		 };
 		 
-		 ;
 		github.auth.config({ username, password }).login({
 		  scopes: ['user', 'repo'],
 		  note: 'Token para Gitbook'
 		}, 
 		(err, id, token) => {
-			console.log(token);
-			console.log(id);
 		  json.token = token;
 		  json.id = id;
-		  console.log(json);
-		  console.log(json.token);
 		  if (err) return err;
 		  //console.log(err);
 		  //console.log(id);
@@ -43,6 +38,7 @@ module.exports = {
 			fs.mkdirSync(directoriomonito + '/.gitbook-start');
 			var pac = directoriomonito + '/.gitbook-start/';
 			fs.writeFile(pac + 'config.json', json, function(err){
+				console.log("aqui da el error");
 				if (err) throw err;
 				
 			});
