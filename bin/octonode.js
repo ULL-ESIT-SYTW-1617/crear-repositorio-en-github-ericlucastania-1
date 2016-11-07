@@ -17,7 +17,7 @@ module.exports = {
 			"id": ""
 		 };
 		 
-		 
+		 ;
 		github.auth.config({ username, password }).login({
 		  scopes: ['user', 'repo'],
 		  note: 'Token para Gitbook'
@@ -25,9 +25,10 @@ module.exports = {
 		(err, id, token) => {
 			console.log(token);
 			console.log(id);
-		  json[token] = token;
-		  json[id] = id;
+		  json.token = token;
+		  json.id = id;
 		  console.log(json);
+		  console.log(json.token);
 		  if (err) return err;
 		  //console.log(err);
 		  //console.log(id);
