@@ -13,8 +13,8 @@ module.exports = {
 		 });
 		 
 		 var json = {
-		 	'token': '',
-		 	'id': ''
+			"token": "",
+			"id": ""
 		 };
 		 
 		 
@@ -23,8 +23,11 @@ module.exports = {
 		  note: 'Token para Gitbook'
 		}, 
 		(err, id, token) => {
+			console.log(token);
+			console.log(id);
 		  json[token] = token;
 		  json[id] = id;
+		  console.log(json);
 		  if (err) return err;
 		  //console.log(err);
 		  //console.log(id);
@@ -35,13 +38,20 @@ module.exports = {
 		
 		var directoriomonito = process.env.HOME;
 		
-		fs.mkdirSync(directoriomonito + '/.gitbook-start');
+		try{
+			fs.mkdirSync(directoriomonito + '/.gitbook-start');
+			var pac = directoriomonito + '/.gitbook-start/';
+			fs.writeFile(pac + 'config.json', json, function(err){
+				if (err) throw err;
+				
+			});
+		}
+		catch(err){
+			console.log("leyendo directorio...");	
+		}
+		
 			
-		var pac = directoriomonito + '/.gitbook-start/';
-		fs.writeFile(pac + 'config.json', json, function(err){
-			if (err) throw err;
-			
-		});
+		
 		
 		
               
@@ -54,6 +64,8 @@ module.exports = {
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 
 		var client = github.client(configJson.token);
+		console.log(configJson);
+		console.log(configJson.token);
 		var ghme = client.me();
 		
 
