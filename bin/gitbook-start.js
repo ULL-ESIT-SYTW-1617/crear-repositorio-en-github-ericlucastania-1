@@ -44,17 +44,19 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
 
 				if (file.indexOf('config.json') === -1) {
-
+					console.log("por aqui se va a neptuno");
 					octonode.octoIni().then((resolve, reject) => {
 						octonode.octoRepo();
 					});
 				}
 				else {
+					console.log("por aqui se va a urano");
 					octonode.octoRepo();
 				}
 			}
 			catch (err) {
-
+				if(err) console.log(err);
+				console.log("por aqui se va a saturno");
 				octonode.octoIni().then((resolve, reject) => {
 					octonode.octoRepo();
 				});
