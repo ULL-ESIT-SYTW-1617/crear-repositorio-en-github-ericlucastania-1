@@ -15,7 +15,12 @@ module.exports = {
 			 
 			 var json = {
 				"token": "",
-				"id": ""
+				"id": "",
+				"user":{
+					"repo": "",
+					"email": "",
+					"name": ""
+				}
 			 };
 			function auth(){
 				return new Promise((resolve,reject) => {
