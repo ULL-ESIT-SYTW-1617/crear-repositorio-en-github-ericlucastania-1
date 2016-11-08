@@ -89,6 +89,7 @@ module.exports = {
 			//console.log(status);
 			console.log(pck.repository.url);
 			pck.repository.url = status.html_url;
+			console.log(pck);
 			//status.html_url
             fs.writeFile(directorioUsuario + 'package.json', pck);
 			console.log(status.ssh_url);
