@@ -48,16 +48,16 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					});
 					
 					second.then((resolve,reject) =>{
-						octonode.octoRepo(dir);
+						octonode.octoRepo();
 					});
 				}
 				else {
-					octonode.octoRepo(dir);
+					octonode.octoRepo();
 				}
 			} catch(err) {
 			
 				octonode.octoIni().then((resolve,reject) =>{
-					octonode.octoRepo(dir);
+					octonode.octoRepo();
 				});
 			 }
 			
