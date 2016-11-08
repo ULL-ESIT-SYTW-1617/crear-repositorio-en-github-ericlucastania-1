@@ -31,7 +31,6 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	//opciones por defecto GitHub	
 	defaultname = config.user.name;
 	defaultemail = config.user.email;
-	var dir = argv.dir || "gitbookStart";
 
 
 	if (comprobar.comp(argv)) {
@@ -61,10 +60,8 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					console.log("QUE COMIENCE LA FIESTA");
 					octonode.octoRepo();
 				});
+			}
 		}
-
-
-
 	}
 	else {
 		console.log("gitbook-start [OPTIONS]\n" +
@@ -76,6 +73,5 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			"-d --deploy deploy en el que se quiera ejecutar gitbook-star -d iaas\n" +
 			"-h muestra ayuda sobre las opciones disponibles\n");
 	}
-
 
 });
