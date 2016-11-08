@@ -82,7 +82,6 @@ module.exports = {
 			  "name": dir,
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
-				console.log(body);
 				require('shelljs/global');
 				if (err) throw err;
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
