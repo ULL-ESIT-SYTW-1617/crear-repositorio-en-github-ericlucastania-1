@@ -68,41 +68,37 @@ module.exports = {
 	},
 	
 	octoRepo: () => {
-		require('shelljs/global');
-		var github = require('octonode');
-		var readlineSync = require('readline-sync');
-		console.log("holaaa");
-		var fs = require('fs-extra');
-		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
-		console.log("caracolaaa");
-		var client = github.client(configJson.token);
-		var directorioUsuario = process.cwd() + '/';
-		var pck = require(directorioUsuario + 'package.json');
-
-		console.log("pimpampolaaa");
-		var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
-		var ghme = client.me();
-		
-		ghme.repo({
-		  "name": dir,
-		  "description": "This is your Gitbook-Start repository",
-		}, (err, status, body, headers) => {
-			console.log("suquii");
-			if (err) throw err;
-			console.log(pck.repository.url);
-			pck.repository.url = status.html_url;
-			console.log(pck);
-            fs.writeFile(directorioUsuario + 'package.json', pck);
-			console.log(status.ssh_url);
-			exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push');
-		}); //repo
-		
-		
-		ghme.info((err, data, headers) => {
-			if(err) console.log(err);
-			//console.log(data);
-		});
+		return new Promise((resolve,reject) => {
+			require('shelljs/global');
+			var github = require('octonode');
+			var readlineSync = require('readline-sync');
+			console.log("holaaa");
+			var fs = require('fs-extra');
+			var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
+			console.log("caracolaaa");
+			var client = github.client(configJson.token);
+			var directorioUsuario = process.cwd() + '/';
+			var pck = require(directorioUsuario + 'package.json');
 	
+			console.log("pimpampolaaa");
+			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
+			var ghme = client.me();
+			
+			ghme.repo({
+			  "name": dir,
+			  "description": "This is your Gitbook-Start repository",
+			}, (err, status, body, headers) => {
+				console.log("suquii");
+				if (err) throw err;
+				console.log(pck.repository.url);
+				pck.repository.url = status.html_url;
+				console.log(pck);
+	            fs.writeFile(directorioUsuario + 'package.json', pck);
+				console.log(status.ssh_url);
+				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
+			}); //repo
+		});
+		
 	}
 	
 	
