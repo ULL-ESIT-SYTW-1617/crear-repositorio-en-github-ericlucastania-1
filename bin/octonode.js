@@ -71,15 +71,15 @@ module.exports = {
 		require('shelljs/global');
 		var github = require('octonode');
 		var readlineSync = require('readline-sync');
-		
+		console.log("holaaa");
 		var fs = require('fs-extra');
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
-		
+		console.log("caracolaaa");
 		var client = github.client(configJson.token);
 		var pck = require('/gitbookStart/package.json');
 		var directorioUsuario = process.cwd() + '/';
 
-
+		console.log("pimpampolaaa");
 		var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
 		var ghme = client.me();
 		
@@ -87,6 +87,7 @@ module.exports = {
 		  "name": dir,
 		  "description": "This is your Gitbook-Start repository",
 		}, (err, status, body, headers) => {
+			console.log("suquii");
 			if (err) throw err;
 			console.log(pck.repository.url);
 			pck.repository.url = status.html_url;

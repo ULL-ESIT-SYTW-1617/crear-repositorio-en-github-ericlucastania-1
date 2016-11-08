@@ -58,10 +58,9 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				if(err) console.log(err);
 				console.log("por aqui se va a saturno");
 				octonode.octoIni().then((resolve, reject) => {
+					console.log("QUE COMIENCE LA FIESTA");
 					octonode.octoRepo();
 				});
-			}
-
 		}
 
 
