@@ -68,12 +68,13 @@ module.exports = {
 	},
 	
 	octoRepo: () => {
+		require('shelljs/global');
 		var github = require('octonode');
 		var readlineSync = require('readline-sync');
 		
-		
 		var fs = require('fs-extra');
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
+		
 		var client = github.client(configJson.token);
 		var pck = require('/gitbookStart/package.json');
 		var directorioUsuario = process.cwd() + '/';
@@ -86,18 +87,18 @@ module.exports = {
 		  "name": dir,
 		  "description": "This is your Gitbook-Start repository",
 		}, (err, status, body, headers) => {
-			require('shelljs/global');
 			if (err) throw err;
-			//console.log(status);
 			console.log(pck.repository.url);
 			pck.repository.url = status.html_url;
 			console.log(pck);
-			//status.html_url
             fs.writeFile(directorioUsuario + 'package.json', pck);
 			console.log(status.ssh_url);
 			exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push');
 		}); //repo
+		
+		
 		ghme.info((err, data, headers) => {
+			if(err) console.log(err);
 			//console.log(data);
 		});
 	
