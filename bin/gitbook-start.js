@@ -55,7 +55,11 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			catch (err) {
 
 				octonode.octoIni().then((resolve, reject) => {
-					octonode.octoRepo();
+					octonode.octoRepo().then((resolve,reject) => {
+						exec('npm run generate-gitbook');
+						exec('npm run deploy-gitbook');
+						
+					});
 
 				});
 			}
