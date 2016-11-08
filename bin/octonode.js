@@ -76,8 +76,8 @@ module.exports = {
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 		console.log("caracolaaa");
 		var client = github.client(configJson.token);
-		var pck = require('/gitbookStart/package.json');
 		var directorioUsuario = process.cwd() + '/';
+		var pck = require(directorioUsuario + 'package.json');
 
 		console.log("pimpampolaaa");
 		var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
