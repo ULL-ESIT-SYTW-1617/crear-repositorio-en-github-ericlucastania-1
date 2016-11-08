@@ -64,7 +64,8 @@ module.exports = {
 	
 	octoRepo: (dir) => {
 		var github = require('octonode');
-		
+		var readlineSync = require('readline-sync');
+		var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
 		
 		
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
