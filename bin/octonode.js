@@ -69,6 +69,8 @@ module.exports = {
 		
 		var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 		var client = github.client(configJson.token);
+		var path = require('path');
+		var pck = require('/gitbookStart/package.json');
 
 		var ghme = client.me();
 		
@@ -78,9 +80,16 @@ module.exports = {
 		}, (err, status, body, headers) => {
 			require('shelljs/global');
 			if (err) throw err;
+			//console.log(status);
+			console.log(pck.repository.url);
+			pck.repository.url = status.html_url;
+			//status.html_url
 			console.log(status.ssh_url);
 			exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push');
 		}); //repo
+		ghme.info((err, data, headers) => {
+			//console.log(data);
+		});
 	
 	}
 	
