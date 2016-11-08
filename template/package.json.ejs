@@ -7,10 +7,10 @@
   "scripts": {
     "generate-gitbook": "node ./scripts/generate-gitbook",
     "generate-wiki": "./scripts/losh generate-wiki",
-    "build": "npm install && npm i gitbook-cli && npm run generate-gitbook",
+    "build": "npm install && npm i gitbook-cli && npm run generate-gitbook && npm run generate-wiki",
     "deploy-gitbook": "node ./scripts/deploy-gitbook",
     "deploy-wiki": "./scripts/losh deploy-wiki",
-    "deploy": "npm run build && npm run deploy-gitbook",
+    "deploy": "npm run build && npm run deploy-gitbook && npm run deploy-wiki",
     "version": "./scripts/losh version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,6 +23,11 @@
     "start",
     "ericlucastania"
   ],
+  "iaas": {
+    "user": "usuario",
+    "ip": "10.6.128.121",
+    "command": "cd /home/usuario/prueba/gitbook-start-iaas-ull-es-ericlucastania;git pull origin master"
+  },
   "author": "<%= autor.name %>",
   "license": "MIT",
   "devDependencies": {
@@ -38,7 +43,6 @@
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-shell": "^0.5.2",
-    "minimist": "^1.2.0",
-    "shelljs": "^0.7.5"
+    "minimist": "^1.2.0"
   }
 }
