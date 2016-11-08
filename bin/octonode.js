@@ -15,12 +15,7 @@ module.exports = {
 			 
 			 var json = {
 				"token": "",
-				"id": "",
-				/*"dataUser":{
-					"repo": "",
-					"email": "",
-					"name": ""
-				}*/
+				"id": ""
 			 };
 			function auth(){
 				return new Promise((resolve,reject) => {
@@ -83,13 +78,12 @@ module.exports = {
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
 				require('shelljs/global');
-				//resolve(configJson.dataUser.repo = status.ssh_url);
-				
+
 				if (err) throw err;
+				console.log(status.ssh_url);
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 			}); //repo
 		});
 	}
-	
 			
 };
