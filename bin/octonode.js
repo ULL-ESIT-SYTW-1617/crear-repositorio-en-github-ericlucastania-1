@@ -3,11 +3,8 @@
 module.exports = {     
  
  
-	octoIni: () => {
+	octoIni: (fs,github,readlineSync) => {
 		 return new Promise((resolviendo,reject) => {
-			 var fs = require('fs-extra');
-			 var github = require('octonode'); 
-			 var readlineSync = require('readline-sync');
 			 var username = readlineSync.question('Introduzca su nombre de usuario en Github: ');
 			 var password = readlineSync.question('Introduzca su contraseña en Github: ', {
 			 	hideEchoBack: true
@@ -60,18 +57,18 @@ module.exports = {
               
 	},
 	
-	octoRepo: () => {
+	octoRepo: (fs,github,readlineSync,directorioUsuario) => {
 		return new Promise((resolve,reject) => {
+			//paquetes
 			require('shelljs/global');
-			var github = require('octonode');
-			var readlineSync = require('readline-sync');
-			var fs = require('fs-extra');
-			var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 			var client = github.client(configJson.token);
+			var ghme = client.me();
+			//variables de entorno y rutas 
+			var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 			var directorioUsuario = process.cwd() + '/';
 			var pck = require(directorioUsuario + 'package.json');
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
-			var ghme = client.me();
+			
 			
 			ghme.repo({
 			  "name": dir,

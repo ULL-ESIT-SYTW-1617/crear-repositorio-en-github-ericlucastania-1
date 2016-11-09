@@ -2,12 +2,15 @@
 
 
 //Paquetes DEPENDECIES
+require('shelljs/global');
 var fs = require('fs-extra');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var gitConfig = require('git-config');
-require('shelljs/global');
 
+var github = require('octonode');
+var readlineSync = require('readline-sync');
+var directorioUsuario = process.cwd() + '/';
 
 // RUTA ACTUAL
 
@@ -42,7 +45,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
 				if (file.indexOf('config.json') === -1) {
-					octonode.octoIni().then((resolve, reject) => {
+					octonode.octoIni(fs,github,readlineSync).then((resolve, reject) => {
 						octonode.octoRepo().then((resolve,reject) => {
 							exec('npm run deploy',function(err,stdout){
 								if(err) console.log(err);
@@ -60,7 +63,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				}
 			}
 			catch (err) {
-				octonode.octoIni().then((resolve, reject) => {
+				octonode.octoIni(fs,github,readlineSync).then((resolve, reject) => {
 					octonode.octoRepo().then((resolve,reject) => {
 						exec('npm run deploy',function(err,stdout){
 							if(err) console.log(err);
