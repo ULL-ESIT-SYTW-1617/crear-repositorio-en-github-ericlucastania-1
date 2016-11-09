@@ -17,7 +17,6 @@ module.exports = {
 				"token": "",
 				"id": "",
 				"user":{
-					"repo": "",
 					"name": ""
 				}
 			 };
@@ -84,7 +83,6 @@ module.exports = {
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 				
 			}); //repo
-			
 		});
 		
 	}
