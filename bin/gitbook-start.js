@@ -65,16 +65,13 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					console.log(reject);
 					octonode.octoIni().then((resolve, reject) => {
 						octonode.octoRepo().then((resolve,reject) => {
-							exec('cat package.json && npm run deploy',function(err,stdout){
+							exec('npm run deploy',function(err,stdout){
 								if(err) console.log(err);
 								else console.log(stdout);
 							});
 							
 						});
 					});
-				});
-				Promise.all([renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct),octonode.octoIni(),octonode.octoRepo()]).then(values => {
-					
 				});
 			}
 		}
