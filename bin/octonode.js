@@ -97,9 +97,9 @@ module.exports = {
 				console.log(pck);
 				pck.repository.url = status.ssh_url;
 				console.log("juanito");
-				var obj = {name: 'JP'};
+				
 				console.log("susanitos");
-				jsonfile.writeFile(pck, obj, function (err) {
+				jsonfile.writeFile(directorioUsuario + 'package.json', pck, function (err) {
 				  console.error(err);
 				});
 				console.log("raton");
