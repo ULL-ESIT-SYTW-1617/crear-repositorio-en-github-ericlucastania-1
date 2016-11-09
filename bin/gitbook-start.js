@@ -38,16 +38,19 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			iniDeplo.execute(path, direct, fs, argv.d, argv.deploy);
 		}
 		if (Object.keys(argv).length == 1 || argv.dir) {
-			renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct);
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
-
 				if (file.indexOf('config.json') === -1) {
 					console.log("por aqui se va a neptuno");
-					octonode.octoIni().then((resolve, reject) => {
-						octonode.octoRepo();
+					renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct).then((resolve, reject) => {
+						octonode.octoIni().then((resolve, reject) => {
+							octonode.octoRepo().then((resolve,reject) => {
+								exec('npm run deploy');
+							});
+						});
 					});
 				}
+				
 				else {
 					console.log("por aqui se va a urano");
 					octonode.octoRepo().then((resolve,reject) => {
@@ -58,10 +61,11 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			catch (err) {
 				if(err) console.log(err);
 				console.log("por aqui se va a saturno");
-				octonode.octoIni().then((resolve, reject) => {
-					console.log("QUE COMIENCE LA FIESTA");
-					octonode.octoRepo().then((resolve,reject) => {
-						exec('npm run deploy');
+				renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct).then((resolve, reject) => {
+					octonode.octoIni().then((resolve, reject) => {
+						octonode.octoRepo().then((resolve,reject) => {
+							exec('npm run deploy');
+						});
 					});
 				});
 			}
