@@ -57,7 +57,6 @@ module.exports = {
 	},
 	
 	octoRepo: (fs,github,readlineSync,directorioUsuario) => {
-		console.log("entra");
 		return new Promise((resolve,reject) => {
 			//paquetes
 			require('shelljs/global');
@@ -68,7 +67,6 @@ module.exports = {
 			var directorioUsuario = process.cwd() + '/';
 			var pck = require(directorioUsuario + 'package.json');
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
-			
 			
 			ghme.repo({
 			  "name": dir,
