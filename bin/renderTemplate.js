@@ -71,10 +71,10 @@ module.exports = {
 			
 			resolve(recursive(names,''));
 			require('shelljs/global');
-			resolve(cd(dir));
-			resolve(exec('git init',function(err,stdout){
+			cd(dir);
+			exec('git init',function(err,stdout){
 				if(err) console.log(err);
-			}));
+			});
 		});
 	}
 		

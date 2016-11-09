@@ -29,9 +29,9 @@ module.exports = {
 					  note: 'Token para Gitbook'
 					}, 
 					(err, id, token) => {
-					  resolve(json.token = token);
-					  resolve(json.id = id);
 					  if (err) return err;
+					  resolve(json.token = token);
+					  json.id = id;
 					  //console.log(err);
 					  //console.log(id);
 					  //console.log(token); // Ahora si tenemos el token de github!!
