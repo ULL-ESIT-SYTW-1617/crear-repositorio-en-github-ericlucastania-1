@@ -3,7 +3,7 @@
 module.exports = {
 
 	rend: (argv,path,fs,defaultname,defaultemail,direct) => {
-		return new Promise((result,reject) =>{
+		return new Promise((resolve,reject) =>{
 			var ejs = require('ejs');
 		
 		
