@@ -72,14 +72,11 @@ module.exports = {
 			require('shelljs/global');
 			var github = require('octonode');
 			var readlineSync = require('readline-sync');
-			console.log("holaaa");
 			var fs = require('fs-extra');
 			var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
-			console.log("caracolaaa");
 			var client = github.client(configJson.token);
 			var directorioUsuario = process.cwd() + '/';
-	
-			console.log("pimpampolaaa");
+			var pck = require(directorioUsuario + 'package.json');
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
 			var ghme = client.me();
 			
@@ -88,21 +85,9 @@ module.exports = {
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
 				if (err) throw err;
-				
-				var jsonfile = require('jsonfile');
-				var file = directorioUsuario + 'package.json';
-				console.log("pepe");
-				var pck = jsonfile.readFileSync(file);
-				console.log("juan");
-				console.log(pck);
 				pck.repository.url = status.ssh_url;
-				console.log("juanito");
 				
-				console.log("susanitos");
-				jsonfile.writeFile(directorioUsuario + 'package.json', pck, function (err) {
-				  console.error(err);
-				});
-				console.log("raton");
+				resolve(fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck)));
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 
 			}); //repo
