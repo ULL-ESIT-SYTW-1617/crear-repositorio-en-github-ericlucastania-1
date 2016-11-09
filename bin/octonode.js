@@ -58,13 +58,14 @@ module.exports = {
 	},
 	
 	octoRepo: (fs,github,readlineSync,directorioUsuario) => {
+		console.log("entra");
 		return new Promise((resolve,reject) => {
 			//paquetes
 			require('shelljs/global');
+			var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 			var client = github.client(configJson.token);
 			var ghme = client.me();
 			//variables de entorno y rutas 
-			var configJson = require(process.env.HOME + '/.gitbook-start/config.json');
 			var directorioUsuario = process.cwd() + '/';
 			var pck = require(directorioUsuario + 'package.json');
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
