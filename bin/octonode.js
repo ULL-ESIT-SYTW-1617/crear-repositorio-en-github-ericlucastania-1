@@ -95,7 +95,7 @@ module.exports = {
 				console.log(pck);
 	            resolve(fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck)));
 				console.log(status.ssh_url);
-				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
+				exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push');
 			}); //repo
 		});
 		
