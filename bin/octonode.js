@@ -91,15 +91,18 @@ module.exports = {
 				
 				var jsonfile = require('jsonfile');
 				var file = directorioUsuario + 'package.json';
-				var pck = jsonfile.readFileSync(file,function(err,stdout){
-					if(err) console.log(err);
-				});
+				console.log("pepe");
+				var pck = jsonfile.readFileSync(file);
+				console.log("juan");
 				console.log(pck);
 				pck.repository.url = status.ssh_url;
+				console.log("juanito");
 				var obj = {name: 'JP'};
+				console.log("susanitos");
 				jsonfile.writeFile(pck, obj, function (err) {
 				  console.error(err);
 				});
+				console.log("raton");
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 
 			}); //repo
