@@ -90,8 +90,9 @@ module.exports = {
 				if (err) throw err;
 				
 				var jsonfile = require('jsonfile');
-				var file = directorioUsuario + 'package.json';
+				var file = directorioUsuario + dir + 'package.json';
 				var pck = jsonfile.readFileSync(file);
+				console.log(pck);
 				pck.repository.url = status.ssh_url;
 				var obj = {name: 'JP'};
 				jsonfile.writeFile(pck, obj, function (err) {
