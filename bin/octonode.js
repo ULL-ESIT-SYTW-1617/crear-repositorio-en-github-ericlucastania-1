@@ -18,7 +18,6 @@ module.exports = {
 				"id": "",
 				"user":{
 					"repo": "",
-					"email": "",
 					"name": ""
 				}
 			 };
