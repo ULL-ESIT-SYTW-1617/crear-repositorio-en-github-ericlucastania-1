@@ -32,10 +32,6 @@ module.exports = {
 					  if (err) return err;
 					  resolve(json.token = token);
 					  json.id = id;
-					  //console.log(err);
-					  //console.log(id);
-					  //console.log(token); // Ahora si tenemos el token de github!!
-					  
 					 
 					});
 				});
@@ -48,7 +44,6 @@ module.exports = {
 				auth().then(function(resolve,reject){
 					fs.mkdirSync(directoriomonito + '/.gitbook-start');
 					var pac = directoriomonito + '/.gitbook-start/';
-					console.log(json);
 					fs.writeFile(pac + 'config.json',JSON.stringify(json), function(err){
 						if (err) throw err;
 						else resolviendo(console.log("guardando el json correctamente.."));
@@ -58,7 +53,6 @@ module.exports = {
 				
 			}
 			catch(err){
-				console.log(err);
 				resolviendo(console.log("leyendo directorio..."));	
 			}
 			

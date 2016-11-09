@@ -38,39 +38,34 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			iniDeplo.execute(path, direct, fs, argv.d, argv.deploy);
 		}
 		if (Object.keys(argv).length == 1 || argv.dir) {
+			renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct);
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
 				if (file.indexOf('config.json') === -1) {
-					console.log("por aqui se va a neptuno");
-					renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct).then((resolve, reject) => {
-						octonode.octoIni().then((resolve, reject) => {
-							octonode.octoRepo().then((resolve,reject) => {
-								exec('npm run deploy');
+					octonode.octoIni().then((resolve, reject) => {
+						octonode.octoRepo().then((resolve,reject) => {
+							exec('npm run deploy',function(err,stdout){
+								if(err) console.log(err);
 							});
 						});
 					});
 				}
 				
 				else {
-					console.log("por aqui se va a urano");
 					octonode.octoRepo().then((resolve,reject) => {
-						exec('npm run deploy');
+						exec('npm run deploy',function(err,stdout){
+							if(err) console.log(err);
+						});
 					});
 				}
 			}
 			catch (err) {
-				if(err) console.log(err);
-				console.log("por aqui se va a saturno");
-				renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct).then((resolve, reject) => {
-					console.log(reject);
-					octonode.octoIni().then((resolve, reject) => {
-						octonode.octoRepo().then((resolve,reject) => {
-							exec('npm run deploy',function(err,stdout){
-								if(err) console.log(err);
-								else console.log(stdout);
-							});
-							
+				octonode.octoIni().then((resolve, reject) => {
+					octonode.octoRepo().then((resolve,reject) => {
+						exec('npm run deploy',function(err,stdout){
+							if(err) console.log(err);
 						});
+						
 					});
 				});
 			}
