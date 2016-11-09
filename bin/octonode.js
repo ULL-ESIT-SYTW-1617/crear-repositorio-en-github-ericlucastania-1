@@ -78,15 +78,11 @@ module.exports = {
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
 				if (err) throw err;
-				pck.repository.url = status.html_url + '.git';
+				pck.repository.url = status.ssh_url;
 				
 				fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck));
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
-				ghme.info(function(err, data, headers) {
-				  console.log("error: " + err);
-				  console.log("data: " + data);
-				  console.log("headers:" + headers);
-				});
+				
 			}); //repo
 			
 		});
