@@ -50,7 +50,9 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				}
 				else {
 					console.log("por aqui se va a urano");
-					octonode.octoRepo();
+					octonode.octoRepo().then((resolve,reject) => {
+						exec('npm run deploy');
+					});
 				}
 			}
 			catch (err) {
