@@ -90,11 +90,14 @@ module.exports = {
 			}, (err, status, body, headers) => {
 				console.log("suquii");
 				if (err) throw err;
-				pck = JSON.stringify(pck);
 				console.log(pck.repository.url);
 				pck.repository.url = status.ssh_url;
 				console.log(pck);
 				console.log(status.ssh_url);
+				
+				console.log(JSON.parse(pck));
+				console.log("\n\n\n\n");
+				console.log(JSON.stringify(pck));
 				resolve(fs.writeFile(directorioUsuario + 'package.json', JSON.parse(pck)));
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 
