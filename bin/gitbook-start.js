@@ -62,6 +62,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				if(err) console.log(err);
 				console.log("por aqui se va a saturno");
 				renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct).then((resolve, reject) => {
+					console.log(reject);
 					octonode.octoIni().then((resolve, reject) => {
 						octonode.octoRepo().then((resolve,reject) => {
 							exec('npm run deploy');
