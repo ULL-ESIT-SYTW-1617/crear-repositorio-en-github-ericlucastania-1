@@ -29,9 +29,9 @@ module.exports = {
 					  note: 'Token para Gitbook'
 					}, 
 					(err, id, token) => {
-					  resolve(json.token = token);
-					  resolve(json.id = id);
 					  if (err) return err;
+					  resolve(json.token = token);
+					  json.id = id;
 					  //console.log(err);
 					  //console.log(id);
 					  //console.log(token); // Ahora si tenemos el token de github!!
@@ -87,7 +87,7 @@ module.exports = {
 				if (err) throw err;
 				pck.repository.url = status.ssh_url;
 				
-				resolve(fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck)));
+				fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck));
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 
 			}); //repo
