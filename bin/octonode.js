@@ -34,12 +34,12 @@ module.exports = {
 			} 
 			
 			
-			var directoriomonito = process.env.HOME;
+			var directorioHome = process.env.HOME;
 			
 			try{
 				auth().then(function(resolve,reject){
-					fs.mkdirSync(directoriomonito + '/.gitbook-start');
-					var pac = directoriomonito + '/.gitbook-start/';
+					fs.mkdirSync(directorioHome + '/.gitbook-start');
+					var pac = directorioHome + '/.gitbook-start/';
 					fs.writeFile(pac + 'config.json',JSON.stringify(json), function(err){
 						if (err) throw err;
 						else resolviendo(console.log("guardando el json correctamente.."));
