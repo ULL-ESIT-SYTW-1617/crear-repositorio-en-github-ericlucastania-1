@@ -32,7 +32,7 @@ module.exports = {
 					  if (err) return err;
 					  resolve(json.token = token);
 					  json.id = id;
-					 
+					  json.user.name = username;
 					});
 				});
 			} 
@@ -79,15 +79,20 @@ module.exports = {
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
 				if (err) throw err;
-				pck.repository.url = status.ssh_url;
-				console.log(status);
+				pck.repository.url = status.html_url + '.git';
+				console.log(headers);
 				console.log("BODY: ");
 				console.log(body);
 				
 				fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck));
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
-
+				ghme.info(function(err, data, headers) {
+				  console.log("error: " + err);
+				  console.log("data: " + data);
+				  console.log("headers:" + headers);
+				});
 			}); //repo
+			
 		});
 		
 	}
