@@ -88,10 +88,11 @@ module.exports = {
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
 				if (err) throw err;
-				pck.repository.url = status.ssh_url;
+				
 				var jsonfile = require('jsonfile');
 				var file = directorioUsuario + 'package.json';
 				var pck = jsonfile.readFileSync(file);
+				pck.repository.url = status.ssh_url;
 				var obj = {name: 'JP'};
 				jsonfile.writeFile(pck, obj, function (err) {
 				  console.error(err);
