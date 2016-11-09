@@ -65,6 +65,8 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					console.log(reject);
 					octonode.octoIni().then((resolve, reject) => {
 						octonode.octoRepo().then((resolve,reject) => {
+							dir = argv.dir || 'gitbookStart';
+							exec('cd' + dir);
 							exec('npm run deploy');
 						});
 					});
