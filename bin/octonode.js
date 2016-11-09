@@ -78,7 +78,6 @@ module.exports = {
 			console.log("caracolaaa");
 			var client = github.client(configJson.token);
 			var directorioUsuario = process.cwd() + '/';
-			var pck = require(directorioUsuario + 'package.json');
 	
 			console.log("pimpampolaaa");
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
@@ -88,16 +87,15 @@ module.exports = {
 			  "name": dir,
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
-				console.log("suquii");
 				if (err) throw err;
-				console.log(pck.repository.url);
 				pck.repository.url = status.ssh_url;
-				console.log(pck);
-				console.log(status.ssh_url);
-				
-				console.log(JSON.parse(pck));
-				console.log("\n\n\n\n");
-				console.log(JSON.stringify(pck));
+				var jsonfile = require('jsonfile');
+				var file = directorioUsuario + 'package.json';
+				var pck = jsonfile.readFileSync(file);
+				var obj = {name: 'JP'};
+				jsonfile.writeFile(pck, obj, function (err) {
+				  console.error(err);
+				});
 				resolve(fs.writeFile(directorioUsuario + 'package.json', JSON.parse(pck)));
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 
