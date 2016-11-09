@@ -91,7 +91,7 @@ module.exports = {
 				console.log("suquii");
 				if (err) throw err;
 				console.log(pck.repository.url);
-				pck.repository.url = status.html_url + '.git';
+				pck.repository.url = status.ssh_url;
 				console.log(pck);
 	            resolve(fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck)));
 				console.log(status.ssh_url);
