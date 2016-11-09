@@ -66,7 +66,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					octonode.octoIni().then((resolve, reject) => {
 						octonode.octoRepo().then((resolve,reject) => {
 							exec('cat package.json');
-							exec('npm run deploy');
+							exec('npm install');
 						});
 					});
 				});
