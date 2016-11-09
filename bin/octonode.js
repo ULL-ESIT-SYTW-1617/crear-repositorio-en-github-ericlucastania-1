@@ -93,7 +93,7 @@ module.exports = {
 				console.log(pck.repository.url);
 				pck.repository.url = status.html_url;
 				console.log(pck);
-	            fs.writeFile(directorioUsuario + 'package.json', pck);
+	            fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck));
 				console.log(status.ssh_url);
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 			}); //repo
