@@ -10,6 +10,7 @@ module.exports = {
 			 	hideEchoBack: true
 			 });
 			 
+			 
 			 var json = {
 				"token": "",
 				"id": "",
@@ -17,6 +18,7 @@ module.exports = {
 					"name": ""
 				}
 			 };
+			 
 			function auth(){
 				return new Promise((resolve,reject) => {
 					github.auth.config({ username, password }).login({
@@ -91,6 +93,7 @@ module.exports = {
 			console.log("Nombre usuario: " + data.name);
 			console.log("Email de usuario: " + data.email);
 		    
+			
 				
 			}); //Info
 		
