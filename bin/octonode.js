@@ -68,6 +68,8 @@ module.exports = {
 			var pck = require(directorioUsuario + 'package.json');
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
 			
+			
+			
 			ghme.repo({
 			  "name": dir,
 			  "description": "This is your Gitbook-Start repository",
@@ -79,7 +81,17 @@ module.exports = {
 				resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 				
 			}); //repo
+			
+			
+		
 		});
+		
+			ghme.info(function(err, data, headers) {
+			
+			  console.log("data: " + data);
+			  
+			});
+			
 		
 	}
 	
