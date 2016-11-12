@@ -74,7 +74,10 @@ module.exports = {
 			  "name": dir,
 			  "description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
+				
 				if (err) throw err;
+				
+				
 				pck.repository.url = status.ssh_url;
 				
 				fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck));
