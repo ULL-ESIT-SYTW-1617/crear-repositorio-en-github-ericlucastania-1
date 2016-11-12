@@ -82,15 +82,16 @@ module.exports = {
 				
 			}); //repo
 			
-			
-		
-		});
-		
-			
 			ghme.info((err, data, headers) => {
 			if(err) console.log(err);
-			console.log(data);
+			console.log("Nombre usuario" + data.name);
+			console.log("Email de usuario" + data.email);
 		});
+		
+		});
+		
+			
+			
 			
 		
 	}
