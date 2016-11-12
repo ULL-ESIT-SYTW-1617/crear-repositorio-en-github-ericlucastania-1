@@ -82,11 +82,14 @@ module.exports = {
 				
 			}); //repo
 			
+			//Información usuario
 			ghme.info((err, data, headers) => {
 			if(err) console.log(err);
-			console.log("Nombre usuario" + data.name);
-			console.log("Email de usuario" + data.email);
-		});
+			console.log("Nombre usuario: " + data.name);
+			console.log("Email de usuario: " + data.email);
+		    
+				
+			}); //Info
 		
 		});
 		
