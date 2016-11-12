@@ -86,11 +86,11 @@ module.exports = {
 		
 		});
 		
-			ghme.info(function(err, data, headers) {
 			
-			  console.log("data: " + data);
-			  
-			});
+			ghme.info((err, data, headers) => {
+			if(err) console.log(err);
+			console.log(data);
+		});
 			
 		
 	}
