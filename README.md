@@ -57,6 +57,16 @@ y guardarlo en el pck.json
     
 ```
 
+### Ejemplo del package.json con el nombre del usuario e email 
+ A continuación se muestra de como quedaría el package.json del usuario una vez obtenido los datos de email 
+y el nombre del usuario de la función ghme.info() sería el siguiente:
+
+  ``` 
+     "email": "alu0100785265@ull.edu.es",
+     "author": "José Lucas"
+     
+  ```
+
 ## Explicación
 
 Cunado se ejecuta el gitbook-start -d PLUGIN se te lanzará el initialize del módulo,
