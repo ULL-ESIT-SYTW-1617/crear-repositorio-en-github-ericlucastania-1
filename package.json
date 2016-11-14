@@ -1,13 +1,13 @@
 {
   "name": "gitbook-start-elt",
-  "version": "0.3.149",
+  "version": "0.3.151",
   "description": "Repo to start gitbook proyect",
   "main": "index.js",
   "scripts": {
     "generate-gitbook": "node ./scripts/generate-gitbook",
     "generate-wiki": "./scripts/losh generate-wiki",
     "build": "npm install && npm i gitbook-cli && npm run generate-gitbook",
-    "deploy-gitbook": "./scripts/losh deploy-gitbook",
+    "deploy-gitbook": "node ./scripts/deploy-gitbook",
     "deploy-wiki": "./scripts/losh deploy-wiki",
     "deploy": "npm run build && npm run deploy-gitbook",
     "test": "echo \"Error: no test specified\" && exit 1"
