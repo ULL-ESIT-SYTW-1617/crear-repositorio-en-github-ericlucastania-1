@@ -74,6 +74,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 					octonode.octoRepo(fs, github, readlineSync, directorioUsuario,pck).then((resolve, reject) => {
 						exec('npm run deploy', function (err, stdout) {
 							if (err) console.log(err);
+							
 						});
 
 					});
