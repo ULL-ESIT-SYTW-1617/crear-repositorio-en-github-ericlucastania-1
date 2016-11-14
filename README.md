@@ -13,32 +13,49 @@ uso de la API de GitHub para poder crearle un repo en la plataforma.
 
 ```npm install -g gitbook-start-elt```
 
-**2. Instala el plugin forma global**
 
-```npm install -g PLUGIN```
-
-**3. Ejecuta el binario para el render del template**
+**2. Ejecuta el binario para el render del template**
 
 ```gitbook-start --dir Carpeta``` !!Si no ejecutas el --dir se creará una carpeta con tu nombre de usuario
 
-**4. Entra en la carpeta**
+**3. Entra en la carpeta**
 
  ```cd Carpeta```
 
-**5. Ejecuta el plugin que desees**
+
+
+
+## PLUGINS
+
+**1. Instala el plugin forma global**
+
+```npm install -g PLUGIN```
+
+**2. Ejecuta el plugin que desees, asegurate de estar dentro de la carpeta**
+
 
 ```gitbook-start -d PLUGIN``` !! También puedes usar la opción --deploy
 
 
-**6. Ejecuta un npm install**
-
-```npm install```
-
-
-**7. Ejecuta el gulp creado**
-
+**3. Ejecuta el gulp creado**
 
 ```gulp deploy-plugin```
+
+
+
+## Correción 
+
+En el archivo /bin/octonode.js utilizamos la función ghme.info para obtener el email y nombre del usuario
+y guardarlo en el pck.json
+
+```javascript
+
+    ghme.info((err, data, headers) => {
+    	pck.email = data.email;
+    	pck.author = data.name;
+    }
+    
+```
 
 ## Explicación
 
