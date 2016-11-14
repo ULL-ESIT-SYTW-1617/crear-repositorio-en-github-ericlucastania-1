@@ -31,7 +31,7 @@ uso de la API de GitHub para poder crearle un repo en la plataforma.
 
 ```npm install -g PLUGIN```
 
-**2. Ejecuta el plugin que desees, asegurate de estar dentro de la carpeta**
+**2. Ejecuta el plugin que desees, asegúrate de estar dentro de la carpeta**
 
 
 ```gitbook-start -d PLUGIN``` !! También puedes usar la opción --deploy
