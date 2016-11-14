@@ -52,7 +52,7 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
 				if (file.indexOf('config.json') === -1) {
 					octonode.octoIni(fs, github, readlineSync).then((resolve, reject) => {
-						octonode.octoRepo(fs, github, readlineSync, directorioUsuario).then((resolve, reject) => {
+						octonode.octoRepo(fs, github, readlineSync, directorioUsuario,pck).then((resolve, reject) => {
 							exec('npm run deploy', function (err, stdout) {
 								if (err) console.log(err);
 							});
@@ -61,7 +61,8 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				}
 
 				else {
-					octonode.octoRepo(fs, github, readlineSync, directorioUsuario).then((resolve, reject) => {
+					
+					octonode.octoRepo(fs, github, readlineSync, directorioUsuario,pck).then((resolve, reject) => {
 						exec('npm run deploy', function (err, stdout) {
 							if (err) console.log(err);
 						});
@@ -69,9 +70,8 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 				}
 			}
 			catch (err) {
-				console.log(err);
 				octonode.octoIni(fs, github, readlineSync).then((resolve, reject) => {
-					octonode.octoRepo(fs, github, readlineSync, directorioUsuario).then((resolve, reject) => {
+					octonode.octoRepo(fs, github, readlineSync, directorioUsuario,pck).then((resolve, reject) => {
 						exec('npm run deploy', function (err, stdout) {
 							if (err) console.log(err);
 						});

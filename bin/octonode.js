@@ -42,10 +42,10 @@ module.exports = {
 			var directorioHome = process.env.HOME;
 
 			try {
-				auth().then(function(resolve, reject) {
+				auth().then(function (resolve, reject) {
 					fs.mkdirSync(directorioHome + '/.gitbook-start');
 					var pac = directorioHome + '/.gitbook-start/';
-					fs.writeFile(pac + 'config.json', JSON.stringify(json), function(err) {
+					fs.writeFile(pac + 'config.json', JSON.stringify(json), function (err) {
 						if (err) throw err;
 						else resolviendo(console.log("guardando el json correctamente.."));
 
@@ -62,7 +62,7 @@ module.exports = {
 
 	},
 
-	octoRepo: (fs, github, readlineSync, directorioUsuario) => {
+	octoRepo: (fs, github, readlineSync, directorioUsuario,pck) => {
 		return new Promise((resolve, reject) => {
 			//paquetes
 			require('shelljs/global');
@@ -71,9 +71,7 @@ module.exports = {
 			var ghme = client.me();
 			//variables de entorno y rutas 
 			var directorioUsuario = process.cwd() + '/';
-			var pck = require(directorioUsuario + 'package.json');
 			var dir = readlineSync.question('Introduzca su nombre del repositorio a crear en Github: ');
-
 
 
 			ghme.repo({
@@ -83,17 +81,15 @@ module.exports = {
 
 				if (err) throw err;
 
-
 				pck.repository.url = status.ssh_url;
 
 
 				ghme.info((err, data, headers) => {
-					if (err) console.log(err);
 					pck.email = data.email;
 					pck.author = data.name;
 					if (pck.author == data.name)
-						fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck),function(){
-							
+						fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck), function () {
+
 							resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
 						});
 
