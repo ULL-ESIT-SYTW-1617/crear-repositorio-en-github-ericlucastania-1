@@ -62,7 +62,7 @@ module.exports = {
 
 	},
 
-	octoRepo: (fs, github, readlineSync, directorioUsuario,pck) => {
+	octoRepo: (fs, github, readlineSync, directorioUsuario) => {
 		return new Promise((resolve, reject) => {
 			//paquetes
 			require('shelljs/global');
@@ -78,6 +78,7 @@ module.exports = {
 				"name": dir,
 				"description": "This is your Gitbook-Start repository",
 			}, (err, status, body, headers) => {
+				var pck = require(directorioUsuario + 'package.json');
 
 				if (err) throw err;
 
