@@ -15,11 +15,7 @@ module.exports = {
 			var re = /.ejs/g;
 		
 			
-			// Si la opcion es -v,imprime version
 			
-			if(argv.v){
-				console.log(pck.version);
-			}
 			
 			// Creamos la carpeta
 			

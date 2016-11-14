@@ -7,7 +7,7 @@ var fs = require('fs-extra');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var gitConfig = require('git-config');
-
+var pck = require(path.join(__dirname, '..','package.json'));
 var github = require('octonode');
 var readlineSync = require('readline-sync');
 var directorioUsuario = process.cwd() + '/';
@@ -37,6 +37,12 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 
 
 	if (comprobar.comp(argv)) {
+		// Si la opcion es -v,imprime version
+
+		if (argv.v) {
+			console.log(pck.version);
+		}
+		
 		if (argv.d || argv.deploy) {
 			iniDeplo.execute(path, direct, fs, argv.d, argv.deploy);
 		}
@@ -45,30 +51,30 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
 				if (file.indexOf('config.json') === -1) {
-					octonode.octoIni(fs,github,readlineSync).then((resolve, reject) => {
-						octonode.octoRepo(fs,github,readlineSync,directorioUsuario).then((resolve,reject) => {
-							exec('npm run deploy',function(err,stdout){
-								if(err) console.log(err);
+					octonode.octoIni(fs, github, readlineSync).then((resolve, reject) => {
+						octonode.octoRepo(fs, github, readlineSync, directorioUsuario).then((resolve, reject) => {
+							exec('npm run deploy', function (err, stdout) {
+								if (err) console.log(err);
 							});
 						});
 					});
 				}
-				
+
 				else {
-					octonode.octoRepo(fs,github,readlineSync,directorioUsuario).then((resolve,reject) => {
-						exec('npm run deploy',function(err,stdout){
-							if(err) console.log(err);
+					octonode.octoRepo(fs, github, readlineSync, directorioUsuario).then((resolve, reject) => {
+						exec('npm run deploy', function (err, stdout) {
+							if (err) console.log(err);
 						});
 					});
 				}
 			}
 			catch (err) {
-				octonode.octoIni(fs,github,readlineSync).then((resolve, reject) => {
-					octonode.octoRepo(fs,github,readlineSync,directorioUsuario).then((resolve,reject) => {
-						exec('npm run deploy',function(err,stdout){
-							if(err) console.log(err);
+				octonode.octoIni(fs, github, readlineSync).then((resolve, reject) => {
+					octonode.octoRepo(fs, github, readlineSync, directorioUsuario).then((resolve, reject) => {
+						exec('npm run deploy', function (err, stdout) {
+							if (err) console.log(err);
 						});
-						
+
 					});
 				});
 			}
