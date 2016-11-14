@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-elt",
-  "version": "0.3.145",
+  "version": "0.3.146",
   "description": "Repo to start gitbook proyect",
   "main": "index.js",
   "scripts": {
