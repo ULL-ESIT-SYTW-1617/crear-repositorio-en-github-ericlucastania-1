@@ -9,9 +9,9 @@ var argv = require('minimist')(process.argv.slice(2));
 var gitConfig = require('git-config');
 var directorioUsuario = process.cwd() + '/';
 var pck = require(path.join(__dirname, '..','package.json'));
-var pckUser = require(directorioUsuario + 'package.json');
 var github = require('octonode');
 var readlineSync = require('readline-sync');
+var pckUser;
 
 // RUTA ACTUAL
 
@@ -48,7 +48,9 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 			iniDeplo.execute(path, direct, fs, argv.d, argv.deploy);
 		}
 		if (Object.keys(argv).length == 1 || argv.dir) {
-			renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct);
+			renderTemplate.rend(argv, path, fs, defaultname, defaultemail, direct).then((resu,reje) =>{
+				pckUser = require(directorioUsuario + 'package.json');
+			});
 			try {
 				var file = fs.readdirSync(process.env.HOME + '/.gitbook-start/');
 				if (file.indexOf('config.json') === -1) {
