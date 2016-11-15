@@ -18,6 +18,40 @@ uso de la API de GitHub para poder crearle un repo en la plataforma.
 
 ```gitbook-start --dir Carpeta``` !!Si no ejecutas el --dir se creará una carpeta con tu nombre de usuario
 
+**3. Demostración de uso**
+
+Cuando ejecutes el paso anterior si no es la primera vez que lo haces te pedirá el usuario y 
+contraseña de github.Si introduces los datos correctamente te pedirá que introduzcas el nombre que quieres ponerle al repo,
+Ahora se desplegará el libro en github:
+
+Ejemplo de uso:
+```
+    alu0100785265:~/workspace (master) $ gitbook-start --dir Carpeta
+    Introduzca su nombre de usuario en Github: alu0100785265
+    Introduzca su contraseña en Github: ********
+    Initialized empty Git repository in /home/ubuntu/workspace/Carpeta/.git/
+    guardando el json correctamente..
+    Introduzca su nombre del repositorio a crear en Github: Ejemplo_repo
+```
+
+Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que poner más el 
+usuario y contraseña gracias a que se te generó un token para evitar que cada vez que quieras 
+crear un repo te pida tus credenciales.
+El token que se genera se guarda en el ./gitbook-start/config.json un lugar seguro para que no pueda acceder nadie
+que no seas tu.
+
+La siguiente función es la que se utiliza para guardar el token que se obtiene
+```javascript
+    auth().then(function (resolve, reject) {
+					fs.mkdirSync(directorioHome + '/.gitbook-start');
+					var pac = directorioHome + '/.gitbook-start/';
+					fs.writeFile(pac + 'config.json', JSON.stringify(json), function (err) {
+						if (err) throw err;
+						else resolviendo(console.log("guardando el json correctamente.."));
+
+					});
+				});
+```
 **3. Entra en la carpeta**
 
  ```cd Carpeta```
