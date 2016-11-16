@@ -25,14 +25,9 @@ contraseña de github.Si introduces los datos correctamente te pedirá que intro
 Ahora se desplegará el libro en github:
 
 Ejemplo de uso:
-```
-    alu0100785265:~/workspace (master) $ gitbook-start --dir Carpeta
-    Introduzca su nombre de usuario en Github: alu0100785265
-    Introduzca su contraseña en Github: ********
-    Initialized empty Git repository in /home/ubuntu/workspace/Carpeta/.git/
-    guardando el json correctamente..
-    Introduzca su nombre del repositorio a crear en Github: Ejemplo_repo
-```
+
+![](https://4.bp.blogspot.com/-tZyZ4yGuI9A/WCxV2cB2ktI/AAAAAAAAAAg/I2tzZnB7FL4Nld6OQRs2NYG-SRwa9kIuwCLcB/s1600/repo.PNG)
+
 
 Una vez que se te creado el repo ya puedes trabajar en él,ya no tendrás que poner más el 
 usuario y contraseña gracias a que se te generó un token para evitar que cada vez que quieras 
