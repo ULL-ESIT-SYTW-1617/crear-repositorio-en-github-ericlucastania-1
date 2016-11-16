@@ -41,7 +41,7 @@
     "octonode": "^0.7.6",
     "readline-sync": "^1.4.5",
     "shelljs": "^0.7.5"
-  "gitHead": "71dde44fc9d95c46c4a239d8a9e1a133ee8fae15",
+  },
   "bugs": {
     "url": "https://github.com/ULL-ESIT-SYTW-1617/crear-repositorio-en-github-ericlucastania-1/issues"
   },
