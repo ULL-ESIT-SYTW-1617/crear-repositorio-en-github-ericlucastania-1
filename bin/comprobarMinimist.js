@@ -4,7 +4,7 @@ module.exports = {
 
     comp: (argv)  => {
         
-        var opcionesValidas = ['d', 'a', 'r','dir','deploy','e','v'];
+        var opcionesValidas = ['d', 'a', 'r','dir','deploy','e','v','repo'];
         var sum=0;
         var flag = true;
         
