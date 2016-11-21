@@ -86,13 +86,14 @@ gitConfig(function (err, config) { //PARA RECOGER OPCIONES POR DEFECTO
 	}
 	else {
 		console.log("gitbook-start [OPTIONS]\n" +
-			"--dir nombre del directorio a crear node gitbook-star --dir miDirectorio\n" +
+			"--dir nombre del directorio a crear node gitbook-start --dir miDirectorio\n" +
 			"-a autor del libro a crear node gitbook-star -a AutorDelLibro\n" +
 			"-e email del autor del libro node gitbook-star -e eric.ramos.suarez@gmail.com\n" +
 			"-r repositorio github contra el que se va a trabajar -r nameRepo\n" +
 			"-v muestra la version del paquete gitbook-start -v\n" +
 			"-d --deploy deploy en el que se quiera ejecutar gitbook-star -d iaas\n" +
-			"-h muestra ayuda sobre las opciones disponibles\n");
+			"-h muestra ayuda sobre las opciones disponibles\n" +
+			"--repo opción que te permite crear un repositorio en GitHub\n");
 	}
 
 });
