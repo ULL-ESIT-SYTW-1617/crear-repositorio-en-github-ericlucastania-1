@@ -91,7 +91,7 @@ module.exports = {
 					if (pck.author == data.name)
 						fs.writeFile(directorioUsuario + 'package.json', JSON.stringify(pck,null,4), function () {
 
-							resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push'));
+							resolve(exec('git remote add origin ' + status.ssh_url + ' ;git add .;git commit -m "inicializando repo";git push origin master'));
 						});
 
 				}); //Info

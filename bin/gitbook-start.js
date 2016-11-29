@@ -12,7 +12,6 @@ var github = require('octonode');
 var readlineSync = require('readline-sync');
 var directorioUsuario = process.cwd() + '/';
 
-// RUTA ACTUAL
 
 var direct = process.cwd() + '/'; //Actual,desde donde se ejecuta el script
 
